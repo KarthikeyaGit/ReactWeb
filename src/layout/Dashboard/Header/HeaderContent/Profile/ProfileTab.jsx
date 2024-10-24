@@ -14,13 +14,28 @@ import LogoutOutlined from '@ant-design/icons/LogoutOutlined';
 import UserOutlined from '@ant-design/icons/UserOutlined';
 import WalletOutlined from '@ant-design/icons/WalletOutlined';
 
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
+
 // ==============================|| HEADER PROFILE - PROFILE TAB ||============================== //
 
 export default function ProfileTab() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  const navigate = useNavigate(); // Initialize useNavigate
+
+
   const handleListItemClick = (index) => {
     setSelectedIndex(index);
+  };
+
+  const handleLogout = () => {
+    // Clear authentication tokens or any user state if applicable
+    // For example:
+    // localStorage.removeItem('token'); // If using local storage for tokens
+    // Optionally, handle any other cleanup necessary
+    
+    navigate('/login'); // Redirect to login page
   };
 
   return (
@@ -50,7 +65,7 @@ export default function ProfileTab() {
         </ListItemIcon>
         <ListItemText primary="Billing" />
       </ListItemButton>
-      <ListItemButton selected={selectedIndex === 2}>
+      <ListItemButton selected={selectedIndex === 2}  onClick={handleLogout}>
         <ListItemIcon>
           <LogoutOutlined />
         </ListItemIcon>

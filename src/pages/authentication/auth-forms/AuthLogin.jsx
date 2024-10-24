@@ -16,6 +16,8 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
+
 
 // third party
 import * as Yup from 'yup';
@@ -32,15 +34,41 @@ import FirebaseSocial from './FirebaseSocial';
 // ============================|| JWT - LOGIN ||============================ //
 
 export default function AuthLogin({ isDemo = false }) {
+  const navigate = useNavigate();
   const [checked, setChecked] = React.useState(false);
-
   const [showPassword, setShowPassword] = React.useState(false);
+
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  const handleLogin = async (values, { setSubmitting }) => {
+    try {
+      const { email, password } = values;
+      const isAuthenticated = await fakeAuth(email, password);
+
+      if (isAuthenticated) {
+        navigate('/dashboard');
+      } else {
+        console.error("Login failed");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const fakeAuth = (email, password) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(email === 'admin@gmail.com' && password === 'password');
+      }, 1000);
+    });
   };
 
   return (
@@ -55,6 +83,7 @@ export default function AuthLogin({ isDemo = false }) {
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
           password: Yup.string().max(255).required('Password is required')
         })}
+        onSubmit={handleLogin}
       >
         {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
           <form noValidate onSubmit={handleSubmit}>
@@ -146,18 +175,19 @@ export default function AuthLogin({ isDemo = false }) {
                   </Button>
                 </AnimateButton>
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <Divider>
                   <Typography variant="caption"> Login with</Typography>
                 </Divider>
               </Grid>
               <Grid item xs={12}>
                 <FirebaseSocial />
-              </Grid>
+              </Grid> */}
             </Grid>
           </form>
         )}
       </Formik>
+
     </>
   );
 }

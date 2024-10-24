@@ -36,7 +36,7 @@ const Signup: React.FC = () => {
     <div className={`main d-flex justify-content-center align-items-center vh-100 ${theme}`}>
       <div className="card">
         <div className="card-body">
-          <h2 className="card-title text-center mb-4">Signup</h2>
+          <h2 className="card-title mb-4">Signup</h2>
           {error && <div className="alert alert-danger">{error}</div>}
           <div className="form-group">
             <label htmlFor="username">Username</label>
@@ -89,7 +89,7 @@ const Signup: React.FC = () => {
           <button className="btn btn-primary mt-3 w-100" onClick={handleSignup}>
             Sign Up
           </button>
-          <div className="text-center mt-3">
+          <div className="text-center mt-3" style={{fontSize: '0.9rem'}}>
             <span>Already have an account? </span>
             <span className="ms-2 btn-link" onClick={handleLoginRedirect}>
               Login

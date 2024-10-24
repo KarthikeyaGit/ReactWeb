@@ -12,8 +12,8 @@
 .light {
     --primary-color: #5D87FF;
     --secondary-color: #03dac6;
-    --background-color: #ffffff;
-    --text-color: #000000;
+    --background-color: #F2F5FC;
+    --text-color: #444444;
     --border-color: #e0e0e0;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --hover-bg-color: #4a6cd9; /* Darker version of primary */
@@ -39,48 +39,5 @@
     --hover-bg-color: #1976d2; /* Darker version of primary */
 }
 
-.red {
-    --primary-color: #d32f2f;
-    --secondary-color: #ff6659;
-    --background-color: #ffebee;
-    --text-color: #b71c1c;
-    --border-color: #ef5350;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --hover-bg-color: #c62828; /* Darker version of primary */
-}
 
-.orange {
-    --primary-color: #ef6c00;
-    --secondary-color: #ffcc80;
-    --background-color: #fff3e0;
-    --text-color: #e65100;
-    --border-color: #ffb74d;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --hover-bg-color: #e65100; /* Darker version of primary */
-}
 
-.purple {
-    --primary-color: #9c27b0;
-    --secondary-color: #ce93d8;
-    --background-color: #f3e5f5;
-    --text-color: #6a1b9a;
-    --border-color: #ab47bc;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --hover-bg-color: #8e24aa; /* Darker version of primary */
-}
-
-.main {
-    background-color: var(--background-color) !important;
-}
-
-.button {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 2px 4px var(--shadow-color);
-    transition: background-color 0.3s;
-}
-
-.button:hover {
-    background-color: var(--hover-bg-color);
-}

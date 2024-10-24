@@ -1,8 +1,8 @@
 // src/routes/AppRouter.tsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Login from '../features/auth/Login/Login';
-import Signup from '../features/auth/Signup/Signup';
+import Login from '../pages/auth/Login/Login';
+import Signup from '../pages/auth/Signup/Signup';
 import Home from '../pages/Home';
 import PrivateRoute from './PrivateRoute';
 
